@@ -1,0 +1,19 @@
+//helpers
+@import "./helpers/variables";
+@import "./helpers/mixin";
+
+//layouts
+@import "./layouts/banner";
+@import "./layouts/header";
+@import "./layouts/page1";
+@import "./layouts/page2";
+@import "./layouts/signinForm";
+@import "./layouts/signupForm";
+@import "./layouts/video";
+@import "./layouts/footer";
+@import "./layouts/courseCatOne";
+@import "./layouts/innerBanner";
+@import "./layouts/courseDetails";
+
+//responsive
+@import "./responsive.scss";

@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
+import NotFound from "./components/NotFound/NotFound";
+import UserLayout from "./layouts/UserLayout/UserLayout";
+import ProtectedRoute from "./routers/ProtectedRoute/ProtectedRoute";
+import Home from "./modules/Home/Home";
+import SignUp from "./modules/Auth/Pages/SignUp/SignUp";
+import SignIn from "./modules/Auth/Pages/SignIn/SignIn";
+import Details from "./modules/Details/Details";
+import UserProvider from "./contexts/UserContext/UserContext";
+import { ShoppingCartProvider } from "./contexts/ShoppingCartContext/ShoppingCartContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <ShoppingCartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<UserLayout />}>
+              <Route index element={<Home />} />
+              <Route path="course/:courseID" element={<Details />} />
+              {/* <Route path="userInfo" element={<UserInfo />}></Route> */}
+              <Route
+              // path="ticket/:showtimeID"
+              // element={<ProtectedRoute>{/* <Ticket /> */}</ProtectedRoute>}
+              />
+              {/* Public routes */}
+              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/sign-up" element={<SignUp />} />
+            </Route>
+
+            {/* Admin Routes need protected */}
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </ShoppingCartProvider>
+    </UserProvider>
   );
 }
 

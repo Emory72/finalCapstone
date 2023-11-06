@@ -1,0 +1,433 @@
+.banner-wrapper {
+  position: relative;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .banner-wrapper {
+    overflow: hidden;
+  }
+}
+.banner-wrapper .owl-dots {
+  margin: 0;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 999;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1200px;
+  text-align: right;
+  display: none !important;
+}
+.banner-wrapper .owl-dots .owl-dot {
+  position: relative;
+  z-index: 991;
+}
+.banner-wrapper .owl-dots .owl-dot span {
+  width: 13px;
+  height: 13px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  opacity: 0.2;
+  margin: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.banner-wrapper .owl-dots .owl-dot + .owl-dot {
+  margin-left: 7px;
+}
+.banner-wrapper .owl-dots .owl-dot.active span {
+  opacity: 1;
+  background-color: transparent;
+}
+.banner-wrapper .owl-carousel .owl-item img {
+  width: auto;
+}
+.banner-wrapper .owl-theme .owl-nav {
+  display: none;
+  margin: 0;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: 60px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #012237;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 91;
+}
+
+.swiper-button-next::before,
+.swiper-button-prev ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.swiper-button-prev {
+  left: 5%;
+}
+.swiper-button-prev:before {
+  right: 7px;
+}
+.swiper-button-prev:hover:before {
+  right: 0;
+}
+
+.swiper-button-next {
+  right: 5%;
+}
+.swiper-button-next:before {
+  right: 7px;
+}
+.swiper-button-next:hover:before {
+  right: 0;
+}
+
+.banner-one .container {
+  position: relative;
+  padding-top: 350px;
+  padding-bottom: 200px;
+}
+.banner-one__slide {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-color: #022c46;
+}
+.banner-one__slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../asset/images/patter-1-1.jpg);
+  opacity: 0.08;
+}
+.banner-one__light-color {
+  color: #fff;
+}
+.banner-one__title {
+  font-size: 140px;
+  line-height: 120px;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+.banner-one__tag-line {
+  margin: 0;
+  font-size: 50px;
+  font-family: "Satisfy";
+  color: white;
+  text-decoration: underline;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  margin-bottom: 55px;
+}
+.banner-one__btn {
+  background-color: #f16101;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 21.5px 59.5px;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+.banner-one__person {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.05);
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+.banner-one__scratch {
+  position: absolute;
+  right: -5%;
+  top: 20%;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+.banner-one [class*="banner-one__bubble-"] {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+.banner-one__bubble-1 {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #1888c9;
+  top: 20%;
+  left: -3%;
+  -webkit-animation-name: bubbleMoveOne;
+  animation-name: bubbleMoveOne;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+.banner-one__bubble-2 {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #7c4bc0;
+  right: 35%;
+  top: 20%;
+  -webkit-animation-name: bubbleMoveTwo;
+  animation-name: bubbleMoveTwo;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+.banner-one__bubble-3 {
+  position: absolute;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  border: 24px solid #33a9bb;
+  right: 35%;
+  bottom: 10%;
+  -webkit-animation-name: globeRotate;
+  animation-name: globeRotate;
+  -webkit-animation-duration: 10s !important;
+  animation-duration: 10s !important;
+}
+.banner-one .swiper-slide-active .banner-one__title {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+.banner-one .swiper-slide-active .banner-one__tag-line {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.banner-one .swiper-slide-active .banner-one__btn {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.banner-one .swiper-slide-active .banner-one__person {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.banner-one .swiper-slide-active .banner-one__scratch {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.banner-one__cta {
+  width: 100%;
+  max-width: 544px;
+  background-color: #2da397;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 91;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 50px 0;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.banner-one__cta-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #fff;
+  position: relative;
+}
+.banner-one__cta-icon:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: absolute;
+  left: -10px;
+  top: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.banner-one__cta-icon:hover:before {
+  left: 0;
+}
+.banner-one__cta-icon a {
+  line-height: 70px;
+  font-size: 40px;
+}
+.banner-one__cta-title {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0px;
+  flex: 1 1 0;
+  padding-left: 30px;
+}
+.banner-one__cta-text {
+  font-size: 18px;
+  line-height: 30px;
+  color: #fff;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+}
+.banner-one__cta a {
+  color: inherit;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.banner-one__cta a:hover {
+  color: #f16101;
+}
+.banner-one__cta-link {
+  color: #fff;
+  font-size: 32px;
+}
+
+.banner-two .container {
+  position: relative;
+  padding-top: 350px;
+  padding-bottom: 245px;
+}
+.banner-two__slide {
+  text-align: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.banner-two__light-color {
+  color: #fff;
+}
+.banner-two__title {
+  font-size: 100px;
+  line-height: 100px;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0;
+  margin-bottom: 60px;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+.banner-two__tag-line {
+  margin: 0;
+  font-size: 40px;
+  font-family: "Satisfy";
+  color: white;
+  text-decoration: underline;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  margin-bottom: 30px;
+}
+.banner-two__btn {
+  font-size: 18px;
+  padding: 21.5px 59.5px;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+.banner-two .swiper-slide-active .banner-two__title {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+.banner-two .swiper-slide-active .banner-two__tag-line {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.banner-two .swiper-slide-active .banner-two__btn {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
