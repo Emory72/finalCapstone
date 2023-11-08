@@ -18,7 +18,7 @@ const signinSchema = object({
       "Mật khẩu có ít nhât 8 ký tự , 1 ký tự Hoa, 1 ký tự thường và 1 số "
     ),
 });
-export default function Signin() {
+export default function SignIn() {
   const {
     register,
     handleSubmit,
@@ -62,10 +62,6 @@ export default function Signin() {
     const redirectTo = searchParams.get("redirectTo");
     return <Navigate to={redirectTo || "/"} replace />;
   }
-  // Nếu có làm trang admin thì chú ý thêm điều kiện phân loại người dùng như sau, chỉ có quản trị mới dc quyền đăng nhập, user bị đẩy về trang 404
-  // if (currentUser.maLoaiNguoiDung !== "QuanTri") {
-  //   return <Navigate to="/404" />;
-  // }
 
   const handleBackToSignup = () => {
     return <Navigate to="/sign-up" />;
@@ -80,6 +76,7 @@ export default function Signin() {
           <form className="form" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <input
+                autoComplete="username"
                 className="input"
                 placeholder="Tài Khoản*"
                 {...register("taiKhoan")}

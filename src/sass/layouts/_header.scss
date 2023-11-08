@@ -82,7 +82,7 @@
   .main-navigation {
     float: none;
     text-align: right;
-    padding-right: 120px;
+    padding-right: 200px;
 
     @media (min-width: 1200px) {
       display: block !important;
@@ -303,7 +303,8 @@
     }
   }
 }
-.header__search-btn:nth-child(2) {
+.header__search-btn:nth-child(2),
+.header__search-btn:nth-child(3) {
   margin-left: 10px;
 }
 

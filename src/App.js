@@ -8,7 +8,7 @@ import SignIn from "./modules/Auth/Pages/SignIn/SignIn";
 import Details from "./modules/Details/Details";
 import UserProvider from "./contexts/UserContext/UserContext";
 import { ShoppingCartProvider } from "./contexts/ShoppingCartContext/ShoppingCartContext";
-
+import UserInfo from "./modules/UserInfo/UserInfo";
 function App() {
   return (
     <UserProvider>
@@ -18,7 +18,7 @@ function App() {
             <Route path="/" element={<UserLayout />}>
               <Route index element={<Home />} />
               <Route path="course/:courseID" element={<Details />} />
-              {/* <Route path="userInfo" element={<UserInfo />}></Route> */}
+              <Route path="userInfo" element={<UserInfo />}></Route>
               <Route
               // path="ticket/:showtimeID"
               // element={<ProtectedRoute>{/* <Ticket /> */}</ProtectedRoute>}

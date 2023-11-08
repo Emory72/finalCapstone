@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,17 +11,10 @@ import {
   faCircleUser,
   faStar,
   faPlusCircle,
-  faMinusCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { useShoppingCart } from "../../../contexts/ShoppingCartContext/ShoppingCartContext";
 
 export default function Page2() {
-  const {
-    getItemQuantity,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-    removeFromCart,
-  } = useShoppingCart();
   const {
     data: courses = [],
     isLoading,
@@ -29,8 +22,7 @@ export default function Page2() {
   } = useQuery({ queryKey: ["courses"], queryFn: getCourses });
 
   const navigate = useNavigate();
-
-  const quantity = getItemQuantity(courses.maKhoaHoc);
+  const { handleAddProducts, handleDeleteProductFromCart } = useShoppingCart();
 
   return (
     <div>
@@ -104,50 +96,14 @@ export default function Page2() {
                           Course Details
                         </button>
                         <div className="mt-auto">
-                          {quantity === 0 ? (
-                            <button
-                              onClick={() =>
-                                increaseCartQuantity(course.maKhoaHoc)
-                              }
-                              className="plusCircle "
-                            >
-                              <FontAwesomeIcon icon={faPlusCircle} />
-                            </button>
-                          ) : (
-                            <div
-                              className="d-flex align-items-center flex-column mt-2"
-                              style={{ gap: ".5rem" }}
-                            >
-                              <div>
-                                <FontAwesomeIcon
-                                  onClick={() =>
-                                    decreaseCartQuantity(course.maKhoaHoc)
-                                  }
-                                  icon={faMinusCircle}
-                                  className="fs-4"
-                                  style={{ color: "rgb(230, 120, 24)" }}
-                                />
-
-                                <span className="fs-5 p-3 ">
-                                  {quantity} in cart
-                                </span>
-                                <FontAwesomeIcon
-                                  onClick={() =>
-                                    increaseCartQuantity(course.maKhoaHoc)
-                                  }
-                                  icon={faPlusCircle}
-                                  className="fs-4"
-                                  style={{ color: "rgb(230, 120, 24)" }}
-                                />
-                              </div>
-                              <button
-                                onClick={() => removeFromCart(course.maKhoaHoc)}
-                                className="btn btn-danger"
-                              >
-                                remove
-                              </button>
-                            </div>
-                          )}
+                          <button
+                            onClick={() => {
+                              handleAddProducts(course.maKhoaHoc);
+                            }}
+                            className="plusCircle "
+                          >
+                            <FontAwesomeIcon icon={faPlusCircle} />
+                          </button>
                         </div>
                       </div>
                     </div>

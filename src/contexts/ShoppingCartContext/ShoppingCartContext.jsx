@@ -10,60 +10,39 @@ export function useShoppingCart() {
 export function ShoppingCartProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const cartQuantity = cartItems.reduce(
-    (quantity, item) => quantity + item.quantity,
-    0
-  );
+
+  const cartQuantity = cartItems.reduce((quantity, item) => {
+    return quantity + item.quantity;
+  }, 0);
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
-  function getItemQuantity(itemID) {
-    return cartItems.find((item) => item.id === itemID)?.quantity || 0;
-  }
 
-  function increaseCartQuantity(itemID) {
-    setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === itemID) == null) {
-        return [...currItems, { itemID, quantity: 1 }];
-      } else {
-        return currItems.map((item) => {
-          if (item.id === itemID) {
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            return item;
-          }
-        });
-      }
-    });
-  }
-  function decreaseCartQuantity(itemID) {
-    setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === itemID)?.quantity === 1) {
-        return currItems.filter((item) => item.id !== itemID);
-      } else {
-        return currItems.map((item) => {
-          if (item.id === itemID) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
-        });
-      }
-    });
-  }
-
-  function removeFromCart(itemID) {
-    console.log("removeFromCart", itemID);
-    setCartItems((currItems) => {
-      return currItems.filter((item) => item.id !== itemID);
-    });
-  }
+  const handleAddProducts = (courseID) => {
+    //Kiểm tra sản phẩm đã tồn tại trong giỏ hàng chưa
+    const foundItem = cartItems.find((item) => item.id === courseID);
+    if (foundItem) {
+      //Sản phẩm đã tồn tại trong giỏ hàng-> tăng số lượng lên 1 đơn vị
+      const newCart = cartItems.map((item) => {
+        if (item.id === courseID) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      setCartItems(newCart);
+    } else {
+      //Sản phẩm chưa tồn tại trong giỏ hàng
+      setCartItems([...cartItems, { courseID, quantity: 1 }]);
+    }
+  };
+  const handleDeleteProductFromCart = (itemID) => {
+    const newCarts = cartItems.filter((item) => item.id !== itemID);
+    setCartItems(newCarts);
+  };
   return (
     <ShoppingCartContext.Provider
       value={{
-        getItemQuantity,
-        increaseCartQuantity,
-        decreaseCartQuantity,
-        removeFromCart,
+        handleAddProducts,
+        handleDeleteProductFromCart,
         cartItems,
         cartQuantity,
         openCart,

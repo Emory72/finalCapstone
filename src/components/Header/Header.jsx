@@ -7,9 +7,15 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { useShoppingCart } from "../../contexts/ShoppingCartContext/ShoppingCartContext";
-
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../contexts/UserContext/UserContext";
+import Dropdown from "react-bootstrap/Dropdown";
 export default function Header() {
+  const navigate = useNavigate();
+  const { currentUser, handleSignout } = useUserContext();
+
   const { openCart, cartQuantity } = useShoppingCart();
   const [sticky, setSticky] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -94,12 +100,32 @@ export default function Header() {
               <li>
                 <Link to="/news">News</Link>
               </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
             </ul>
           </div>
           <div className="right-side-box">
+            {currentUser ? (
+              <Dropdown>
+                <Dropdown.Toggle id="dropdown-basic">
+                  {currentUser.hoTen}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/userInfo">Account</Dropdown.Item>
+                  <Dropdown.Item href="#">Lesson</Dropdown.Item>
+                  <Dropdown.Item onClick={handleSignout}>
+                    Sign Out
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : (
+              <button
+                onClick={() => navigate("/sign-in")}
+                className="header__search-btn  border-0"
+              >
+                <FontAwesomeIcon icon={faRightToBracket} />
+              </button>
+            )}
+
             <button
               className="header__search-btn search-popup__toggler search-toggle border border-0"
               onClick={handleSearchToggle}

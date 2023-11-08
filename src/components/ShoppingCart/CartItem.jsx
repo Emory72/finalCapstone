@@ -1,33 +1,42 @@
 import React from "react";
+import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../contexts/ShoppingCartContext/ShoppingCartContext";
 import { useQuery } from "@tanstack/react-query";
 import { getCourses } from "../../apis/courseAPI";
-import { Stack } from "react-bootstrap";
-export default function CartItem({ itemID, quantity }) {
-  const { removeFromCart } = useShoppingCart();
+
+export default function CartItem({ courseID, quantity }) {
+  const { handleDeleteProductFromCart } = useShoppingCart();
   const {
     data: courses = [],
     isLoading,
     error,
   } = useQuery({ queryKey: ["courses"], queryFn: getCourses });
-
-  const item = courses.find((course) => course.maKhoaHoc === itemID);
-  if (item == null) return null;
+  const itemSelect = courses.find((course) => course.maKhoaHoc === courseID);
+  console.log(itemSelect);
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
-      <img src={item.hinhAnh} width={50} height={50} />
+      <img
+        src={itemSelect.hinhAnh}
+        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+      />
       <div className="me-auto">
         <div>
-          {item.tenKhoaHoc}
-          {quantity > 1 && ` x ${quantity}`}
+          {itemSelect.tenKhoaHoc}
+          {quantity > 1 && (
+            <span className="text-muted" style={{ fontSize: ".65rem" }}>
+              x{quantity}
+            </span>
+          )}
         </div>
-        <button
-          className="btn btn-danger"
-          onClick={() => removeFromCart(item.maKhoaHoc)}
-        >
-          X
-        </button>
       </div>
+
+      <Button
+        variant="outline-danger"
+        size="sm"
+        onClick={() => handleDeleteProductFromCart(itemSelect.maKhoaHoc)}
+      >
+        &times;
+      </Button>
     </Stack>
   );
 }
