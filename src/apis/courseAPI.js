@@ -48,3 +48,24 @@ export const getCourseDetails = async (courseID) => {
     throw error.response.data;
   }
 };
+
+export const checkoutAPI = async (payload) => {
+  try {
+    const response = await fetcher.post(
+      "/QuanLyKhoaHoc/DangKyKhoaHoc",
+      payload
+    );
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const cancelCourse = async (payload) => {
+  try {
+    const response = await fetcher.post("/QuanLyKhoaHoc/HuyGhiDanh", payload);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};

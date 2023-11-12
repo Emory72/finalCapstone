@@ -9,6 +9,7 @@ import Details from "./modules/Details/Details";
 import UserProvider from "./contexts/UserContext/UserContext";
 import { ShoppingCartProvider } from "./contexts/ShoppingCartContext/ShoppingCartContext";
 import UserInfo from "./modules/UserInfo/UserInfo";
+import RegistedCourse from "./modules/RegistedCourse/RegistedCourse";
 function App() {
   return (
     <UserProvider>
@@ -19,6 +20,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path="course/:courseID" element={<Details />} />
               <Route path="userInfo" element={<UserInfo />}></Route>
+              <Route path="registedCourse" element={<RegistedCourse />}></Route>
               <Route
               // path="ticket/:showtimeID"
               // element={<ProtectedRoute>{/* <Ticket /> */}</ProtectedRoute>}

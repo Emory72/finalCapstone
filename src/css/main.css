@@ -551,7 +551,7 @@
 .header-navigation .main-navigation {
   float: none;
   text-align: right;
-  padding-right: 200px;
+  padding-right: 230px;
 }
 @media (min-width: 1200px) {
   .header-navigation .main-navigation {
@@ -851,6 +851,24 @@
 .header__search-btn:nth-child(2),
 .header__search-btn:nth-child(3) {
   margin-left: 10px;
+}
+
+.header__loginUser {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2da397;
+  font-size: 18px;
+  transition: all 0.4s ease;
+  border: none;
+  position: relative;
+  color: #fff;
+  margin-top: 3px;
+}
+.header__loginUser:hover {
+  background-color: #10413b;
+  color: #fff;
 }
 
 .header__search-form {

@@ -19,6 +19,8 @@ const signinSchema = object({
     ),
 });
 export default function SignIn() {
+  const { currentUser, handleSignin: onSigninSuccess } = useUserContext();
+
   const {
     register,
     handleSubmit,
@@ -33,8 +35,6 @@ export default function SignIn() {
     // Mặc định là onSubmit(sau khi submit mới show lỗi ), thay đồi thành onTouched để khi user bỏ qua 1 input thì show error liền
   });
 
-  const { currentUser, handleSignin: onSigninSuccess } = useUserContext();
-
   const {
     mutate: handleSignin,
     isLoading,
@@ -42,6 +42,7 @@ export default function SignIn() {
   } = useMutation({
     mutationFn: (payload) => signin(payload),
     onSuccess: (data) => {
+      console.log(data);
       onSigninSuccess(data);
     },
   });
@@ -54,7 +55,7 @@ export default function SignIn() {
   // useNavigate là một hook của React Router giúp tạo ra một hàm để chuyển hướng đến các route khác trong ứng dụng React
   //Navigate là một(component) để tự động chuyển hướng
 
-  // currentUser khác null => user đã đăng nhập => điều hướng về home
+  // loginUser khác null => user đã đăng nhập => điều hướng về home
   //Thêm replace để thay thế lịch sử định hướng tới các page khi đã sign in
   const [searchParams] = useSearchParams();
 

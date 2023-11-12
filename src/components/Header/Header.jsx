@@ -31,13 +31,10 @@ export default function Header() {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  const handleSearchToggle = () => {
-    setSearchPopupActive(!isSearchPopupActive);
-  };
-
-  const handleSearchClose = () => {
-    setSearchPopupActive(false);
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
   };
 
   useEffect(() => {
@@ -105,13 +102,17 @@ export default function Header() {
           <div className="right-side-box">
             {currentUser ? (
               <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  variant="rgb(41, 159, 146)"
+                  className="header__loginUser"
+                >
                   {currentUser.hoTen}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="/userInfo">Account</Dropdown.Item>
-                  <Dropdown.Item href="#">Lesson</Dropdown.Item>
+                  <Dropdown.Item href="/registedCourse">Lesson</Dropdown.Item>
                   <Dropdown.Item onClick={handleSignout}>
                     Sign Out
                   </Dropdown.Item>
@@ -125,13 +126,6 @@ export default function Header() {
                 <FontAwesomeIcon icon={faRightToBracket} />
               </button>
             )}
-
-            <button
-              className="header__search-btn search-popup__toggler search-toggle border border-0"
-              onClick={handleSearchToggle}
-            >
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
 
             <button
               className="header__search-btn cart-popup"
