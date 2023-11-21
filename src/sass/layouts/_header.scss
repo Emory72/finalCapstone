@@ -1,92 +1,44 @@
-.topbar-one {
-  background-color: #022c46;
-
-  .container {
-    padding-top: 6.5px;
-    padding-bottom: 6.5px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__right,
-  &__left {
-    display: flex;
-
-    a {
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      transition: color 0.4s ease;
-
-      &:hover {
-        color: $thm-base-color;
-      }
-
-      + a {
-        margin-left: 25px;
-      }
-    }
-  }
+.sticky-header {
+  background-color: #092b47;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
-
 .header-navigation {
-  background-color: transparent;
-  margin-bottom: 0;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  position: relative;
-  background-color: transparent;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  .container {
-    background: transparent;
-    position: relative;
-    display: block;
+  .logo-box {
+    display: flex;
+    align-items: center;
+  }
 
-    .logo-box {
-      float: left;
-      position: absolute;
-      top: 50%;
-      left: 15px;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      display: flex;
-      align-items: center;
-    }
+  .navbar-brand {
+    width: auto;
+    height: auto;
+    margin: 0;
+    line-height: 1;
+  }
 
-    .navbar-brand {
-      width: auto;
-      height: auto;
-      margin: 0;
-      line-height: 1;
-    }
+  .menu-toggler {
+    display: none;
+  }
 
-    .menu-toggler {
-      display: none;
-    }
-
-    .right-side-box {
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      right: 15px;
-      display: flex;
-      justify-content: end;
-      margin-left: 10px;
-    }
+  .right-side-box {
+    display: flex;
+    justify-content: end;
+    margin-left: 10px;
   }
 
   .main-navigation {
     float: none;
     text-align: right;
     padding-right: 230px;
-
-    @media (min-width: 1200px) {
-      display: block !important;
-    }
   }
 }
 
@@ -100,8 +52,6 @@
   }
 
   > li {
-    position: relative;
-    padding: 35px 0;
     display: inline-block;
     vertical-align: middle;
 
@@ -276,7 +226,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $thm-base-color-2;
+  background-color: $thm-base-color;
   font-size: 18px;
   transition: all 0.4s ease;
   border: none;
@@ -291,7 +241,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 1px solid $thm-base-color-2;
+    border: 1px solid $thm-base-color;
     transition: all 0.4s ease;
   }
 

@@ -1,7 +1,4 @@
 @media (max-width: 1280px) {
-  .header__search-form {
-    display: none;
-  }
   .cta-two__single {
     flex-direction: column;
     padding: 70px;
@@ -18,7 +15,18 @@
     font-weight: bold;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 992px) {
+  .header-navigation .main-navigation {
+    display: none;
+  }
+  .header-navigation .menu-toggler {
+    display: block;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .banner-one .banner-one__person {
     display: none !important;
   }
@@ -76,9 +84,8 @@
   .site-header__header-two .header-navigation .container .right-side-box {
     right: 15px;
   }
-  .header-navigation .container .menu-toggler {
-    display: flex;
-    color: black;
+  .header-navigation .navigation-box {
+    display: none;
   }
   .site-header__home-three .header-navigation .container .right-side-box {
     top: 30px;

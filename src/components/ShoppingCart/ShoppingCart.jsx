@@ -6,7 +6,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getCourses } from "../../apis/courseAPI";
 import { useUserContext } from "../../contexts/UserContext/UserContext";
 import { checkoutAPI } from "../../apis/courseAPI";
-
+import ProtectedRoute from "../../routers/ProtectedRoute/ProtectedRoute";
+import { useNavigate } from "react-router-dom";
 export default function ShoppingCart({ isOpen }) {
   const queryClient = useQueryClient();
   const { currentUser } = useUserContext();
@@ -39,6 +40,7 @@ export default function ShoppingCart({ isOpen }) {
     },
   });
 
+
   return (
     <Offcanvas show={isOpen} placement="end" onHide={closeCart}>
       <Offcanvas.Header closeButton>
@@ -49,11 +51,12 @@ export default function ShoppingCart({ isOpen }) {
           {itemSelect.map((item) => (
             <CartItem key={item.maKhoaHoc} itemSelect={item} />
           ))}
+
           <button
             onClick={() => handleCheckOut(courseIDs)}
             className="btn btn-primary"
           >
-            Checkout
+            Check Out
           </button>
         </Stack>
       </Offcanvas.Body>

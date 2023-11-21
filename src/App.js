@@ -10,6 +10,8 @@ import UserProvider from "./contexts/UserContext/UserContext";
 import { ShoppingCartProvider } from "./contexts/ShoppingCartContext/ShoppingCartContext";
 import UserInfo from "./modules/UserInfo/UserInfo";
 import RegistedCourse from "./modules/RegistedCourse/RegistedCourse";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+
 function App() {
   return (
     <UserProvider>
@@ -22,8 +24,12 @@ function App() {
               <Route path="userInfo" element={<UserInfo />}></Route>
               <Route path="registedCourse" element={<RegistedCourse />}></Route>
               <Route
-              // path="ticket/:showtimeID"
-              // element={<ProtectedRoute>{/* <Ticket /> */}</ProtectedRoute>}
+                path="cart"
+                element={
+                  <ProtectedRoute>
+                    <ShoppingCart />
+                  </ProtectedRoute>
+                }
               />
               {/* Public routes */}
               <Route path="/sign-in" element={<SignIn />} />

@@ -478,72 +478,36 @@
   animation-delay: 1s;
 }
 
-.topbar-one {
-  background-color: #022c46;
-}
-.topbar-one .container {
-  padding-top: 6.5px;
-  padding-bottom: 6.5px;
-  display: flex;
-  justify-content: space-between;
-}
-.topbar-one__right, .topbar-one__left {
-  display: flex;
-}
-.topbar-one__right a, .topbar-one__left a {
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  transition: color 0.4s ease;
-}
-.topbar-one__right a:hover, .topbar-one__left a:hover {
-  color: #f16101;
-}
-.topbar-one__right a + a, .topbar-one__left a + a {
-  margin-left: 25px;
+.sticky-header {
+  background-color: #092b47;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-navigation {
-  background-color: transparent;
-  margin-bottom: 0;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  position: relative;
-  background-color: transparent;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.header-navigation .container {
-  background: transparent;
-  position: relative;
-  display: block;
-}
-.header-navigation .container .logo-box {
-  float: left;
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.header-navigation .logo-box {
   display: flex;
   align-items: center;
 }
-.header-navigation .container .navbar-brand {
+.header-navigation .navbar-brand {
   width: auto;
   height: auto;
   margin: 0;
   line-height: 1;
 }
-.header-navigation .container .menu-toggler {
+.header-navigation .menu-toggler {
   display: none;
 }
-.header-navigation .container .right-side-box {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 15px;
+.header-navigation .right-side-box {
   display: flex;
   justify-content: end;
   margin-left: 10px;
@@ -552,11 +516,6 @@
   float: none;
   text-align: right;
   padding-right: 230px;
-}
-@media (min-width: 1200px) {
-  .header-navigation .main-navigation {
-    display: block !important;
-  }
 }
 
 .header-navigation ul.navigation-box {
@@ -568,8 +527,6 @@
   display: none;
 }
 .header-navigation ul.navigation-box > li {
-  position: relative;
-  padding: 35px 0;
   display: inline-block;
   vertical-align: middle;
   /* Second Level Menu */
@@ -823,7 +780,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2da397;
+  background-color: #f16101;
   font-size: 18px;
   transition: all 0.4s ease;
   border: none;
@@ -838,7 +795,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 1px solid #2da397;
+  border: 1px solid #f16101;
   transition: all 0.4s ease;
 }
 .header__search-btn:hover {
@@ -1632,7 +1589,6 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 100000px;
   height: 100%;
   background-color: #022c46;
 }
@@ -1672,7 +1628,6 @@
 }
 .footer-widget__about::before {
   content: "";
-  width: 100000px;
   height: 100%;
   position: absolute;
   top: 0;
@@ -2377,10 +2332,37 @@
   margin-left: 10px;
 }
 
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  padding: 3rem 0;
+  background-color: rgba(225, 225, 225, 0.9);
+  overflow: hidden;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: rgb(172, 169, 169);
+  cursor: pointer;
+}
+
+.closeIcon:hover {
+  opacity: 0.9;
+  scale: 1.1;
+}
+
 @media (max-width: 1280px) {
-  .header__search-form {
-    display: none;
-  }
   .cta-two__single {
     flex-direction: column;
     padding: 70px;
@@ -2397,7 +2379,18 @@
     font-weight: bold;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 992px) {
+  .header-navigation .main-navigation {
+    display: none;
+  }
+  .header-navigation .menu-toggler {
+    display: block;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .banner-one .banner-one__person {
     display: none !important;
   }
@@ -2455,9 +2448,8 @@
   .site-header__header-two .header-navigation .container .right-side-box {
     right: 15px;
   }
-  .header-navigation .container .menu-toggler {
-    display: flex;
-    color: black;
+  .header-navigation .navigation-box {
+    display: none;
   }
   .site-header__home-three .header-navigation .container .right-side-box {
     top: 30px;

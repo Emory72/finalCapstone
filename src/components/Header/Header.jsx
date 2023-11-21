@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
@@ -12,24 +13,19 @@ import { useShoppingCart } from "../../contexts/ShoppingCartContext/ShoppingCart
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../contexts/UserContext/UserContext";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Navbar } from "react-bootstrap";
+import Sidebar from "../Sidebar/Sidebar";
 export default function Header() {
   const navigate = useNavigate();
   const { currentUser, handleSignout } = useUserContext();
-
   const { openCart, cartQuantity } = useShoppingCart();
-  const [sticky, setSticky] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isSearchPopupActive, setSearchPopupActive] = useState(false);
 
-  const handleScroll = () => {
-    if (window.scrollY > 70) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
   const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
+    setMenuOpen(true);
+  };
+  const closeSidebar = () => {
+    setMenuOpen(false);
   };
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -37,22 +33,10 @@ export default function Header() {
     setIsSearchOpen(!isSearchOpen);
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <header className="site-header site-header__header-one ">
-      <nav
-        className={`navbar navbar-expand-lg navbar-light header-navigation stricky ${
-          sticky ? "stricked-menu stricky-fixed" : ""
-        }`}
-      >
-        <div className="container clearfix">
+    <header className="sticky-header">
+      <div className="container">
+        <Navbar className="header-navigation">
           <div className="logo-box clearfix">
             <Link to="/" className="navbar-brand">
               <img
@@ -69,13 +53,9 @@ export default function Header() {
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
             </div>
-            <button className="menu-toggler" onClick={toggleMenu}>
-              <span className="icon-menu">
-                <FontAwesomeIcon icon={faBars} />
-              </span>
-            </button>
           </div>
-          <div className={`main-navigation ${isMenuOpen ? "open" : ""}`}>
+
+          <div className="main-navigation">
             <ul className=" navigation-box">
               <li className="current">
                 <Link to="/">Home</Link>
@@ -149,9 +129,23 @@ export default function Header() {
                 </div>
               )}
             </button>
+
+            {/* Ham Menu Btn  */}
+
+            <button
+              className="menu-toggler header__search-btn"
+              onClick={toggleMenu}
+            >
+              <span className="icon-menu">
+                <FontAwesomeIcon icon={faBars} />
+              </span>
+            </button>
           </div>
-        </div>
-      </nav>
+
+          {/* Sidebar */}
+          <Sidebar isMenuOpen={isMenuOpen} closeSidebar={closeSidebar} />
+        </Navbar>
+      </div>
       <div className="site-header__decor">
         <div className="site-header__decor-row">
           <div className="site-header__decor-single">

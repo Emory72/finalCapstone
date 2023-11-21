@@ -1,0 +1,29 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  padding: 3rem 0;
+  background-color: rgb(225, 225, 225, 0.9);
+  overflow: hidden;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: rgb(172, 169, 169);
+  cursor: pointer;
+}
+
+.closeIcon:hover {
+  opacity: 0.9;
+  scale: 1.1;
+}
