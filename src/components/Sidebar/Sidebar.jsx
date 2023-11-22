@@ -9,8 +9,8 @@ export default function Sidebar({ isMenuOpen, closeSidebar }) {
         <FontAwesomeIcon icon={faClose} />
       </span>
 
-      <div className="main-navigation">
-        <ul className=" navigation-box">
+      <div className="sidebar-navigation">
+        <ul className=" sidebar-box">
           <li className="current">
             <Link to="/">Home</Link>
           </li>

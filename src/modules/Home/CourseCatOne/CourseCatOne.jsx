@@ -24,8 +24,6 @@ export default function CourseCatOne() {
     refetchOnWindowFocus: false,
   });
 
-  console.log(data);
-
   useEffect(() => {
     if (courseCat.length > 0) {
       handleGetCategory(courseCat[0].maDanhMuc);

@@ -2,11 +2,12 @@
   background-color: #092b47;
   color: #fff;
   text-align: center;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
 }
+
 .header-navigation {
   height: 80px;
   display: flex;
@@ -119,29 +120,6 @@
         display: none;
       }
     }
-  }
-}
-
-.stricked-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: #fff;
-  box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.06);
-  opacity: 0;
-  transform: translateY(-110%);
-  transition: all 0.4s ease;
-
-  ul.navigation-box > li {
-    padding-top: 18px;
-    padding-bottom: 18px;
-  }
-
-  &.stricky-fixed {
-    opacity: 1;
-    transform: translateY(0%);
   }
 }
 

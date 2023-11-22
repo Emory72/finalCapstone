@@ -29,12 +29,10 @@
     display: block;
   }
 
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
   .banner-one .banner-one__person {
+    display: none !important;
+  }
+  .banner-one .banner-one__scratch {
     display: none !important;
   }
   .course-one__top-title.home-one .block-title__title {
@@ -153,10 +151,6 @@
 
   .banner-one__title {
     font-size: 50px;
-  }
-
-  .banner-one__scratch {
-    display: none !important;
   }
 
   .banner-one__tag-line {
