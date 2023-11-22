@@ -24,7 +24,6 @@ export default function Banner() {
                 <div className="banner-one__bubble-1"></div>
                 <div className="banner-one__bubble-2"></div>
                 <div className="banner-one__bubble-3"></div>
-                <img src={slidestrech} alt="" className="banner-one__scratch" />
                 <img src={person1} className="banner-one__person" alt="" />
                 <div className="row no-gutters">
                   <div className="col-xl-12">
@@ -49,7 +48,6 @@ export default function Banner() {
                 <div className="banner-one__bubble-1"></div>
                 <div className="banner-one__bubble-2"></div>
                 <div className="banner-one__bubble-3"></div>
-                <img src={slidestrech} alt="" className="banner-one__scratch" />
                 <img src={person2} className="banner-one__person" alt="" />
                 <div className="row no-gutters">
                   <div className="col-xl-12">
