@@ -981,7 +981,6 @@
   margin-right: 14px;
 }
 .about-two__image {
-  display: inline-block;
   border-radius: 50%;
   position: relative;
 }
@@ -1081,6 +1080,7 @@
 }
 .course-one__image > img {
   width: 100%;
+  height: auto;
 }
 .course-one__image i {
   font-size: 16px;
@@ -1458,6 +1458,9 @@
 }
 .video-two .container {
   position: relative;
+}
+.video-two .video_button {
+  margin-top: 50px;
 }
 .video-two .thm-btn {
   text-decoration: none;

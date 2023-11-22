@@ -26,7 +26,7 @@ export default function Video() {
               </a>
             </div>
           </div>
-          <div className="col-lg-5 d-flex justify-content-lg-end justify-content-sm-start">
+          <div className="video_button col-lg-5 d-flex justify-content-lg-end justify-content">
             <div className="my-auto">
               <ModalVideo
                 channel="youtube"

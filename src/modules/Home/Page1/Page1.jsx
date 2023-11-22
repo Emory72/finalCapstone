@@ -47,10 +47,10 @@ export default function Page1() {
               </a>
             </div>
           </div>
-          <div className="col-xl-6 d-flex justify-content-xl-end justify-content-sm-center">
+          <div className="col-xl-6 d-flex justify-content-xl-end justify-content-sm-center mt-5">
             <div className="about-two__image">
               <span className="about-two__image-dots"></span>
-              <img src={about1} alt="" />
+              <img src={about1} alt="" className="img-fluid" />
             </div>
           </div>
         </div>

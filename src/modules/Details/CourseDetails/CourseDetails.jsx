@@ -1,6 +1,5 @@
 import React from "react";
-import { getCourseDetails } from "../../../apis/courseAPI";
-import { useQuery } from "@tanstack/react-query";
+import { getCourseDetails, checkoutAPI } from "../../../apis/courseAPI";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,16 +8,29 @@ import {
   faHeart,
   faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { useUserContext } from "../../../contexts/UserContext/UserContext";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function CourseDetails({ courseID }) {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const { data, isLoading } = useQuery({
     queryKey: ["courseDetails", courseID],
     queryFn: () => getCourseDetails(courseID),
     enabled: !!courseID,
   });
-  console.log(data);
-
+  const { currentUser } = useUserContext();
+  const { mutate: handleCheckOut } = useMutation({
+    mutationFn: (maKhoaHoc) =>
+      checkoutAPI({
+        maKhoaHoc,
+        taiKhoan: currentUser.taiKhoan,
+      }),
+    onSuccess: () => {
+      alert("Success alert — check it out!");
+      navigate("/registedCourse");
+    },
+  });
   return (
     <section className="course-details">
       <div className="container">
@@ -258,8 +270,11 @@ export default function CourseDetails({ courseID }) {
             <div className="course-details__price">
               <p className="course-details__price-text">Learn This Course</p>
 
-              <a href="#none" className="thm-btn course-details__price-btn">
-                Add to cart
+              <a
+                onClick={() => handleCheckOut(data.maKhoaHoc)}
+                className="thm-btn course-details__price-btn"
+              >
+                Register in Course
               </a>
             </div>
 

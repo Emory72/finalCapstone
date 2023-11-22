@@ -6,13 +6,6 @@ import { getCourses } from "../../apis/courseAPI";
 
 export default function CartItem({ itemSelect, quantity }) {
   const { handleDeleteProductFromCart } = useShoppingCart();
-  // const {
-  //   data: courses = [],
-  //   isLoading,
-  //   error,
-  // } = useQuery({ queryKey: ["courses"], queryFn: getCourses });
-  // const itemSelect = courses.find((course) => course.maKhoaHoc === itemID);
-  console.log(itemSelect);
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">

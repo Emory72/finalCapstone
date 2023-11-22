@@ -16,7 +16,6 @@ export default function RegistedCourse() {
     queryKey: ["userInfo"],
     queryFn: userInfo,
   });
-  console.log(data);
 
   const { mutate: handleCancelCourse } = useMutation({
     mutationFn: (maKhoaHoc) =>

@@ -74,7 +74,7 @@ export default function Page2() {
 
           <div className="course-one__carousel">
             <Swiper
-              slidesPerView={3}
+              slidesPerView={window.innerWidth > 576 ? 3 : 1}
               spaceBetween={50}
               pagination={{
                 clickable: true,

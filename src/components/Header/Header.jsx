@@ -62,14 +62,6 @@ export default function Header() {
               </li>
               <li>
                 <a href="#none">Pages</a>
-                <ul className="sub-menu">
-                  <li>
-                    <Link to="/about">About Page</Link>
-                  </li>
-                  <li>
-                    <Link to="/gallery">Gallery</Link>
-                  </li>
-                </ul>
               </li>
               <li>
                 <a href="/courses">Courses</a>
