@@ -30,6 +30,10 @@ export default function CourseDetails({ courseID }) {
       alert("Success alert — check it out!");
       navigate("/registedCourse");
     },
+    onError: () => {
+      alert("Fail alert — Please sign in to register courses!");
+      navigate("/sign-in");
+    },
   });
   return (
     <section className="course-details">

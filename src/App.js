@@ -22,11 +22,20 @@ function App() {
               <Route index element={<Home />} />
               <Route path="course/:courseID" element={<Details />} />
               <Route path="userInfo" element={<UserInfo />}></Route>
+              <Route path="cart" element={<ShoppingCart />}></Route>
               <Route
                 path="registedCourse"
                 element={
                   <ProtectedRoute>
                     <RegistedCourse />ß
+                  </ProtectedRoute>
+                }
+              ></Route>
+              <Route
+                path="cart"
+                element={
+                  <ProtectedRoute>
+                    <ShoppingCart />
                   </ProtectedRoute>
                 }
               ></Route>

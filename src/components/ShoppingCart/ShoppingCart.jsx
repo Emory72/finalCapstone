@@ -3,30 +3,31 @@ import { Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../contexts/ShoppingCartContext/ShoppingCartContext";
 import CartItem from "./CartItem";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getCourses } from "../../apis/courseAPI";
+import { getCourses, checkoutAPI } from "../../apis/courseAPI";
 import { useUserContext } from "../../contexts/UserContext/UserContext";
-import { checkoutAPI } from "../../apis/courseAPI";
-import ProtectedRoute from "../../routers/ProtectedRoute/ProtectedRoute";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+
 export default function ShoppingCart({ isOpen }) {
+  // const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { currentUser } = useUserContext();
-  const { closeCart, cartItems } = useShoppingCart();
+  const { closeCart, cartItems, clearCart } = useShoppingCart();
   const {
     data: courses = [],
     isLoading,
     error,
   } = useQuery({ queryKey: ["courses"], queryFn: getCourses });
   const courseIDs = cartItems.map((item) => item.itemID);
-  const itemSelect = courses.filter((course) =>
+  let itemSelect = courses.filter((course) =>
     courseIDs.includes(course.maKhoaHoc)
   );
+  console.log(courseIDs);
 
   const { mutate: handleCheckOut } = useMutation({
     mutationFn: async (maKhoaHocList) => {
       const checkoutPromises = maKhoaHocList.map(async (maKhoaHoc) => {
         await checkoutAPI({
-          maKhoaHoc,
+          maKhoaHoc: maKhoaHoc,
           taiKhoan: currentUser.taiKhoan,
         });
       });
@@ -36,10 +37,12 @@ export default function ShoppingCart({ isOpen }) {
     },
     onSuccess: () => {
       alert("Success alert—check it out!");
-      queryClient.invalidateQueries({ queryKey: "getCourses" });
+      clearCart();
+    },
+    onError: () => {
+      alert("Fail alert — Please sign in to register courses!");
     },
   });
-
 
   return (
     <Offcanvas show={isOpen} placement="end" onHide={closeCart}>

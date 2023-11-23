@@ -41,6 +41,10 @@ export function ShoppingCartProvider({ children }) {
     setCartItems(newCarts);
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -50,6 +54,7 @@ export function ShoppingCartProvider({ children }) {
         cartQuantity,
         openCart,
         closeCart,
+        clearCart,
       }}
     >
       {children}
